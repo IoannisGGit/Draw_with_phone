@@ -1,7 +1,10 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxOsc.h"
 
+//DEFINE A PORT TO LISTEN TO
+#define PORT 12345
 class ofApp : public ofBaseApp{
 
 	public:
@@ -20,5 +23,16 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-		
+
+		ofxOscReceiver receiver;
+		int mouseX, mouseY;
+		string mouseButtonState;
+		deque<string> messageBuffer;
+		int maxBufferSize = 20;
+		int myNum;
+		float myNum2;
+		string myString;
+		float myTime;
+
+		float accelerometerX;
 };
